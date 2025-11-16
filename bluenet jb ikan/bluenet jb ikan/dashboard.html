@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BlueNet - Supplier Ikan Laut Segar & Beku</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-top container">
+      <div class="header-left">
+        <img src="BlueNet-removebg-preview.png" alt="BlueNet Logo" class="logo">
+        <div class="brand-text">
+          <h1>BlueNet</h1>
+          <p class="tagline">Supplier Ikan Laut Segar & Beku</p>
+        </div>
+      </div>
+      
+      <div class="search-container">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" id="searchInput" placeholder="Cari produk ikan..." />
+      </div>
+      
+      <div class="header-actions">
+        <div class="notif-menu" id="notifMenu" aria-haspopup="true" aria-expanded="false" tabindex="0">
+          <button id="notifBtn" class="action-btn" aria-label="Notifikasi" title="Notifikasi">
+            <i class="far fa-bell"></i>
+            <span class="visually-hidden">Notifikasi</span>
+            <span class="cart-count" id="notifCount">3</span>
+          </button>
+          <div class="notif-dropdown" id="notifDropdown" aria-hidden="true">
+            <div class="notif-header">
+              Notifikasi
+              <button id="clearNotifs" title="Bersihkan" class="clear-link">Bersihkan</button>
+            </div>
+            <div class="notif-list" id="notifList">
+              <!-- items akan dirender oleh JS -->
+            </div>
+            <div class="notif-footer"><a href="#notifikasi" class="small-link">Lihat semua notifikasi</a></div>
+          </div>
+        </div>
+
+        <button class="action-btn cart-btn" id="cartBtn">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="visually-hidden">Keranjang</span>
+          <span class="cart-count">3</span>
+        </button>
+
+        <div class="user-menu" id="userMenu" aria-haspopup="true" aria-expanded="false" tabindex="0">
+          <div class="user-avatar">
+            <i class="fas fa-user"></i>
+          </div>
+          <span>Akun Saya</span>
+          <div class="user-dropdown" id="userDropdown" aria-hidden="true">
+            <a href="index.html" class="ud-link">Masuk</a>
+            <a href="register.html" class="ud-link">Daftar</a>
+            <a href="#" id="udLogout" class="ud-link" style="display:none;">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <nav class="main-nav">
+      <div class="container">
+        <ul class="nav-links">
+          <li><a href="#produk">Semua Produk</a></li>
+          <li><a href="#kategori-segar">Ikan Segar</a></li>
+          <li><a href="#kategori-beku">Ikan Beku</a></li>
+          <li><a href="#kategori-udang">Udang</a></li>
+          <li><a href="#kategori-fillet">Fillet</a></li>
+          <li><a href="#promo">Promo Hari Ini</a></li>
+          <li><a href="#best-seller">Best Seller</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  
+  <!-- Hero Banner -->
+  <section class="hero-banner">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h2>Supplier Ikan Laut Segar & Beku untuk Bisnis Anda</h2>
+          <p>Pengiriman terjadwal, cold storage, dan layanan B2B untuk restoran, hotel, dan catering.</p>
+          <a class="cta-btn" href="#produk">Lihat Semua Produk</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">500+</span>
+            <span class="stat-label">Pelanggan</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">50+</span>
+            <span class="stat-label">Jenis Ikan</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">24/7</span>
+            <span class="stat-label">Layanan</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Main Content -->
+  <div class="container">
+    <div class="main-content">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-section">
+          <h3>Kategori</h3>
+          <ul class="category-list">
+            <li><a href="#"><i class="fas fa-fish"></i> Semua Produk</a></li>
+            <li><a href="#"><i class="fas fa-snowflake"></i> Ikan Beku</a></li>
+            <li><a href="#"><i class="fas fa-leaf"></i> Ikan Segar</a></li>
+            <li><a href="#"><i class="fas fa-shrimp"></i> Udang</a></li>
+            <li><a href="#"><i class="fas fa-cut"></i> Fillet</a></li>
+            <li><a href="#"><i class="fas fa-crab"></i> Kerang & Cumi</a></li>
+            <li><a href="#"><i class="fas fa-box"></i> Produk Kemasan</a></li>
+          </ul>
+        </div>
+        
+        <div class="sidebar-section">
+          <h3>Filter Harga</h3>
+          <div class="price-filter">
+            <input type="range" min="0" max="200000" value="100000" class="price-slider">
+            <div class="price-range">
+              <span>Rp 0</span>
+              <span>Rp 200.000</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="sidebar-section">
+          <h3>Rating</h3>
+          <ul class="category-list">
+            <li><a href="#"><i class="fas fa-star"></i> 5 Bintang</a></li>
+            <li><a href="#"><i class="fas fa-star"></i> 4 Bintang ke atas</a></li>
+            <li><a href="#"><i class="fas fa-star"></i> 3 Bintang ke atas</a></li>
+          </ul>
+        </div>
+        
+        <div class="sidebar-section">
+          <h3>Promo</h3>
+          <ul class="category-list">
+            <li><a href="#"><i class="fas fa-tag"></i> Diskon Spesial</a></li>
+            <li><a href="#"><i class="fas fa-shipping-fast"></i> Gratis Ongkir</a></li>
+            <li><a href="#"><i class="fas fa-gift"></i> Bundle Produk</a></li>
+          </ul>
+        </div>
+      </aside>
+      
+      <!-- Products Section -->
+      <main class="products-section">
+        <!-- Flash Sale Banner -->
+        <div class="flash-sale">
+          <div class="sale-header">
+            <h3><i class="fas fa-bolt"></i> FLASH SALE</h3>
+            <div class="sale-timer">
+              <span>Berakhir dalam:</span>
+              <div class="timer">
+                <span class="time-box">02</span>:
+                <span class="time-box">45</span>:
+                <span class="time-box">18</span>
+              </div>
+            </div>
+          </div>
+          <div class="sale-products" id="saleProducts">
+            <!-- Sale product cards will be rendered here (JS / static) -->
+            <div class="sale-item">
+              <div class="product-image" style="background-image:url('hero-fish.jpg')"></div>
+              <div class="sale-info">
+                <strong>Ikan Dori Segar</strong>
+                <div class="price">Rp 45.000/kg <span class="old">Rp 56.000</span></div>
+              </div>
+            </div>
+            <div class="sale-item">
+              <div class="product-image" style="background-image:url('hero-fish.jpg')"></div>
+              <div class="sale-info">
+                <strong>Ikan Tongkol Beku</strong>
+                <div class="price">Rp 38.000/kg</div>
+              </div>
+            </div>
+            <!-- tambahkan item lain sesuai kebutuhan -->
+          </div>
+        </div>
+        
+        <!-- Featured Products -->
+        <section id="produk">
+          <div class="section-header">
+            <h2 class="section-title">Produk Unggulan</h2>
+            <a href="#" class="view-all">Lihat Semua <i class="fas fa-chevron-right"></i></a>
+          </div>
+          
+          <div class="products-grid" id="productsGrid">
+            <!-- Product Cards -->
+            <div class="product-card" data-category="segar fillet" data-name="Ikan Dori Segar">
+              <div class="product-badge">-20%</div>
+              <div class="product-image" style="background-image:url('hero-fish.jpg')"></div>
+              <div class="product-actions">
+                <button class="action-icon wishlist-btn" title="Tambah ke wishlist">
+                  <i class="far fa-heart"></i>
+                </button>
+                <button class="action-icon compare-btn" title="Bandingkan">
+                  <i class="fas fa-exchange-alt"></i>
+                </button>
+              </div>
+              <div class="product-info">
+                <h3 class="product-title">Ikan Dori Segar</h3>
+                <p class="product-desc">Fillet premium segar</p>
+                <div class="product-rating">
+                  <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                  </div>
+                  <span class="rating-count">(245)</span>
+                </div>
+                <div class="product-price">
+                  <span class="current-price">Rp 45.000/kg</span>
+                  <span class="original-price">Rp 56.000</span>
+                </div>
+                <div class="product-meta">
+                  <span class="sold">Terjual 120</span>
+                  <span class="location">Jakarta</span>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart('Ikan Dori Segar', 45000)">
+                  <i class="fas fa-cart-plus"></i> Keranjang
+                </button>
+              </div>
+            </div>
+            
+            <!-- More product cards with similar structure -->
+            <div class="product-card" data-category="beku" data-name="Ikan Tongkol Beku">
+              <div class="product-image" style="background-image:url('hero-fish.jpg')"></div>
+              <div class="product-actions">
+                <button class="action-icon wishlist-btn" title="Tambah ke wishlist">
+                  <i class="far fa-heart"></i>
+                </button>
+                <button class="action-icon compare-btn" title="Bandingkan">
+                  <i class="fas fa-exchange-alt"></i>
+                </button>
+              </div>
+              <div class="product-info">
+                <h3 class="product-title">Ikan Tongkol Beku</h3>
+                <p class="product-desc">Kualitas pabrik</p>
+                <div class="product-rating">
+                  <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                  </div>
+                  <span class="rating-count">(189)</span>
+                </div>
+                <div class="product-price">
+                  <span class="current-price">Rp 38.000/kg</span>
+                </div>
+                <div class="product-meta">
+                  <span class="sold">Terjual 85</span>
+                  <span class="location">Jakarta</span>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart('Ikan Tongkol Beku', 38000)">
+                  <i class="fas fa-cart-plus"></i> Keranjang
+                </button>
+              </div>
+            </div>
+            
+            <!-- Additional product cards would go here -->
+          </div>
+        </section>
+        
+        <!-- Categories Section -->
+        <section class="categories-section">
+          <div class="section-header">
+            <h2 class="section-title">Kategori Produk</h2>
+          </div>
+          <div class="categories-grid">
+            <div class="category-card">
+              <div class="category-icon">
+                <i class="fas fa-fish"></i>
+              </div>
+              <h3>Ikan Segar</h3>
+              <p>120 produk</p>
+            </div>
+            <div class="category-card">
+              <div class="category-icon">
+                <i class="fas fa-snowflake"></i>
+              </div>
+              <h3>Ikan Beku</h3>
+              <p>85 produk</p>
+            </div>
+            <div class="category-card">
+              <div class="category-icon">
+                <i class="fas fa-shrimp"></i>
+              </div>
+              <h3>Udang</h3>
+              <p>45 produk</p>
+            </div>
+            <div class="category-card">
+              <div class="category-icon">
+                <i class="fas fa-cut"></i>
+              </div>
+              <h3>Fillet</h3>
+              <p>60 produk</p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>BlueNet</h4>
+          <p>Supplier Ikan Laut Segar & Beku untuk restoran, hotel, dan catering.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h4>Layanan</h4>
+          <ul>
+            <li><a href="#">Bantuan</a></li>
+            <li><a href="#">Cara Pesan</a></li>
+            <li><a href="#">Pengiriman</a></li>
+            <li><a href="#">Pembayaran</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Perusahaan</h4>
+          <ul>
+            <li><a href="#">Tentang Kami</a></li>
+            <li><a href="#">Karir</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Kebijakan Privasi</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Kontak</h4>
+          <p><i class="fas fa-map-marker-alt"></i> Jl. Bina Marga No.58, Jakarta Timur</p>
+          <p><i class="fas fa-phone"></i> +62 822-9831-7532</p>
+          <p><i class="fas fa-envelope"></i> info@bluenet.co.id</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 BlueNet — Semua hak dilindungi.</p>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Shopping Cart Sidebar -->
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>Keranjang Belanja</h3>
+      <button class="close-cart" id="closeCart">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="cart-items">
+      <!-- Cart items will be populated here -->
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span class="total-amount">Rp 0</span>
+      </div>
+      <button class="checkout-btn">Checkout</button>
+    </div>
+  </div>
+  
+  <!-- Toast Notification -->
+  <div id="toast" class="toast"></div>
+  
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

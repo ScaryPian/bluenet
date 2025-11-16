@@ -1,0 +1,412 @@
+/* Background gradient */
+.bg {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Poppins, sans-serif;
+  background: linear-gradient(135deg, #1273ff, #4cc0ff, #0099ff);
+  background-size: 200% 200%;
+  animation: bgMove 8s infinite alternate;
+}
+
+@keyframes bgMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 100%; }
+}
+
+/* Card with glass effect */
+.card {
+  width: 330px;
+  padding: 30px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 35px rgba(0,0,0,0.2);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.animate {
+  transform: translateY(20px);
+  opacity: 0;
+  animation: fadeUp 0.6s forwards ease-out;
+}
+
+@keyframes fadeUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.title {
+  text-align: center;
+  font-size: 22px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+
+/* Floating label input */
+.inputBox {
+  position: relative;
+  margin: 18px 0;
+}
+
+.inputBox input {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  font-size: 15px;
+}
+
+.inputBox input:focus {
+  box-shadow: 0 0 12px #ffffff80;
+}
+
+.inputBox label {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  font-size: 14px;
+  color: #eee;
+  pointer-events: none;
+  transition: 0.2s;
+}
+
+/* Label naik kalau input fokus atau terisi */
+.inputBox input:focus ~ label,
+.inputBox input:not(:placeholder-shown) ~ label {
+  top: -9px;
+  left: 10px;
+  font-size: 11px;
+  background: rgba(255,255,255,0.2);
+  padding: 0 6px;
+  border-radius: 4px;
+}
+
+/* Button */
+.btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  margin-top: 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  background: #ffffff90;
+  cursor: pointer;
+  color: #000;
+  transition: 0.25s;
+}
+
+.btn:hover {
+  background: white;
+  transform: scale(1.04);
+  box-shadow: 0 0 12px #ffffffaa;
+}
+
+.switch {
+  text-align: center;
+  color: white;
+  margin-top: 10px;
+}
+
+.switch a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.error {
+  color: rgb(255, 100, 100);
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Styling untuk halaman auth (login / register) */
+.auth-container {
+  width: 360px;
+  margin: 60px auto;
+  padding: 28px;
+  border-radius: 14px;
+  background: rgba(0, 16, 32, 0.64); /* lebih gelap supaya teks putih nampak */
+  color: #eaf6ff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
+  font-family: Poppins, sans-serif;
+}
+.auth-container h2 {
+  margin: 0 0 18px;
+  text-align: center;
+  font-size: 20px;
+}
+.auth-container .form-group {
+  margin-bottom: 12px;
+}
+.auth-container label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 6px;
+  color: #000000;
+}
+.auth-container input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.06);
+  color: #eaf6ff;
+  outline: none;
+  box-sizing: border-box;
+  font-size: 15px;
+}
+.auth-container input:focus {
+  box-shadow: 0 0 10px rgba(0,140,255,0.18);
+  border-color: rgba(0,140,255,0.7);
+}
+.auth-container button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(90deg,#00a3ff,#0077be);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 6px;
+}
+.auth-container button:hover {
+  transform: translateY(-1px);
+}
+.auth-container .error {
+  color: #ffb3b3;
+  margin-top: 8px;
+  font-size: 14px;
+  text-align: center;
+}
+.auth-container a { color: #dff6ff; text-decoration: underline; }
+
+/* Pastikan halaman auth punya background gelap dan teks kontras */
+body {
+  margin: 0;
+  font-family: Poppins, sans-serif;
+  background: linear-gradient(135deg, #0b3b6f 0%, #0077be 50%, #003f6b 100%);
+  min-height: 100vh;
+  color: #eaf6ff; /* teks utama agar kontras */
+}
+
+/* Brand/logo for auth and header */
+.auth-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.auth-brand .logo {
+  width: 72px;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+.brand-title {
+  margin: 0;
+  color: #eaf6ff;
+  font-size: 20px;
+}
+
+/* header on dashboard */
+header .logo {
+  width: 56px;
+  margin-right: 12px;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  background: linear-gradient(90deg,#003f6b,#0077be);
+  color: #fff;
+}
+header .header-left {
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+/* Password toggle button */
+.password-wrap {
+  position: relative;
+  display: block;
+}
+.password-wrap input {
+  padding-right: 52px; /* reserve space for the toggle button */
+  box-sizing: border-box;
+}
+.password-wrap .toggle-pass {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  color: #eaf6ff;
+  font-size: 18px;
+  line-height: 1;
+  padding: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.password-wrap .toggle-pass:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(0,140,255,0.12);
+}
+@media (max-width: 360px) {
+  .password-wrap input { padding-right: 44px; }
+  .password-wrap .toggle-pass { width: 32px; height: 32px; font-size: 16px; }
+}
+
+/* efek interaksi kecil */
+.auth-container button[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.auth-container .success {
+  color: #b8ffd6;
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* --- animasi untuk auth up --- */
+@keyframes slideInUp {
+  from { transform: translateY(14px); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+@keyframes logoFloat {
+  0%   { transform: translateY(0) rotate(0deg); }
+  50%  { transform: translateY(-6px) rotate(-1.2deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+@keyframes fadeUpShort {
+  from { transform: translateY(8px); opacity: 0; }
+  to   { transform: translateY(0);   opacity: 1; }
+}
+
+/* animasi aja */
+.auth-container {
+  animation: slideInUp 560ms cubic-bezier(.22,.9,.3,1) both;
+  will-change: transform, opacity;
+}
+
+/* logo melayang boi */
+.auth-brand .logo {
+  animation: logoFloat 3.6s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* transisi halus aowkwk */
+.auth-container input,
+.auth-container button,
+.password-wrap .toggle-pass {
+  transition: box-shadow 180ms ease, transform 150ms ease, opacity 150ms ease;
+}
+
+/* tombol be buat interaksi mikro cuk */
+.password-wrap .toggle-pass:active {
+  transform: scale(0.94);
+  opacity: 0.95;
+}
+
+/* staggered entrance for form groups inside the form */
+.auth-container form .form-group {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: fadeUpShort 420ms ease forwards;
+}
+.auth-container form .form-group:nth-of-type(1) { animation-delay: 0.12s; }
+.auth-container form .form-group:nth-of-type(2) { animation-delay: 0.20s; }
+.auth-container form .form-group:nth-of-type(3) { animation-delay: 0.28s; }
+.auth-container form .form-group:nth-of-type(4) { animation-delay: 0.36s; }
+.auth-container form button {
+  transform-origin: center;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+.auth-container form button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0,122,204,0.18);
+}
+
+/* success / error fade */
+.auth-container .error, .auth-container .success {
+  transition: opacity 240ms ease, color 160ms ease;
+  opacity: 1;
+}
+
+/* Fix: pastikan label & input terlihat (kontras lebih kuat) */
+.auth-container label {
+  color: #dff6ff; /* override sebelumnya yang gelap */
+  font-weight: 600;
+}
+
+.auth-container input {
+  background: rgba(255,255,255,0.08); /* sedikit lebih terang agar kotak terlihat */
+  border: 1px solid rgba(255,255,255,0.18); /* border lebih kontras */
+  padding: 12px;
+  color: #eaf6ff;
+}
+
+.auth-container input::placeholder {
+  color: rgba(234,246,255,0.6);
+}
+
+/* Make sure password-wrap button doesn't cover input text on small widths */
+.password-wrap input {
+  padding-right: 30px;
+}
+
+/* --- Text animations --- */
+/* slide-in for section headings (login / register) */
+@keyframes slideInRight {
+  from { transform: translateX(18px); opacity: 0; }
+  to   { transform: translateX(0);     opacity: 1; }
+}
+.auth-container h2 {
+  animation: slideInRight 640ms cubic-bezier(.22,.9,.3,1) both;
+  letter-spacing: 0.2px;
+}
+
+/* shimmering gradient for brand title */
+@keyframes shimmerBG {
+  0% { background-position: -120% 0; }
+  100% { background-position: 220% 0; }
+}
+.brand-title {
+  display: inline-block;
+  font-weight: 700;
+  background: linear-gradient(90deg, #eaf6ff 0%, #00d4ff 40%, #6be7ff 70%, #eaf6ff 100%);
+  background-size: 260% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmerBG 2.8s linear infinite;
+  will-change: background-position;
+}
+
+/* small accessibility: respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .auth-container h2,
+  .brand-title {
+    animation: none !important;
+    transition: none !important;
+  }
+}
